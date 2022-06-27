@@ -48,7 +48,8 @@ router.post("/", async (req, res) => {
   try {
     const user = await createUser.save();
     // status code 201 means that successfully created an objects
-    res.json(user);
+    res.status(201).json(user);
+    console.log(user);
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
@@ -108,9 +109,7 @@ async function getUser(req, res, next) {
 
   try {
     user = await UserModel.findById(id);
-    user == null
-      ? res.status(404).json({ message: "Cannot find User" })
-      : (res.user = user);
+    user == null ? res.status(404).json({ message: "Cannot find User" }) : (res.user = user);
   } catch (err) {
     return res.status(500).json({ message: err.message });
   }
