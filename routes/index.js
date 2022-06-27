@@ -63,15 +63,15 @@ router.post("/", async (req, res) => {
  */
 router.patch("/:id", getUser, async (req, res) => {
   if (req.body.name != null) {
-    req.user.name = req.body.name;
+    res.user.name = req.body.name;
   }
 
   if (req.body.email != null) {
-    req.user.email = req.body.email;
+    res.user.email = req.body.email;
   }
 
   if (req.body.password != null) {
-    req.user.password = req.body.password;
+    res.user.password = req.body.password;
   }
 
   try {
