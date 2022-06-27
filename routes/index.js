@@ -46,7 +46,7 @@ router.post("/", async (req, res) => {
     password: req.body.password,
   });
   try {
-    const user = awaitcreateUser.save();
+    const user = await createUser.save();
     // status code 201 means that successfully created an objects
     res.json(user);
   } catch (err) {
